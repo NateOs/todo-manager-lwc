@@ -1,8 +1,18 @@
-import { LightningElement } from "lwc";
+import { LightningElement, track } from "lwc";
 
 export default class TodoManager extends LightningElement {
-  time = "8:15 PM";
-  greeting = "GOOD EVENING!";
+  // track makes the value reactive
+  @track time = "8:15 AM";
+  @track greeting = "GOOD MORNING!";
+
+  // this is like useEffect
+  // basically means when component mounts to DOM, do this!
+  connectedCallback() {
+    setInterval(() => {
+      this.getTime();
+      this.setGreeting(new Date().getHours());
+    }, 1000 * 60);
+  }
 
   getTime() {
     const date = new Date();
