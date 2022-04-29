@@ -4,14 +4,15 @@ export default class TodoManager extends LightningElement {
   // track makes the value reactive
   @track time = "8:15 AM";
   @track greeting = "GOOD MORNING!";
+  @track todos = [];
 
   // this is like useEffect
   // basically means when component mounts to DOM, do this!
   connectedCallback() {
-    setInterval(() => {
-      this.getTime();
-      this.setGreeting(new Date().getHours());
-    }, 1000 * 60);
+    // setInterval(() => {
+    this.getTime();
+    this.setGreeting(new Date().getHours());
+    // }, 1000 * 60);
   }
 
   getTime() {
@@ -44,5 +45,12 @@ export default class TodoManager extends LightningElement {
     } else {
       this.greeting = "GOOD EVENING!";
     }
+  }
+
+  addTodoHandler() {
+    const inputBox = this.template.querySelector("lightning-input");
+    console.log("current value: ", inputBox.value);
+
+    inputBox.value = "";
   }
 }
