@@ -4,5 +4,6 @@
     "**/bower_components": true,
     "**/.sfdx": true
   },
-  "prettier.printWidth": 120
+  "prettier.printWidth": 120,
+  "salesforcedx-vscode-apex.java.home": "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath\\javac.exe"
 }
