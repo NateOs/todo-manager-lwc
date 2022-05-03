@@ -49,12 +49,33 @@ export default class TodoManager extends LightningElement {
 
   addTodoHandler() {
     const inputBox = this.template.querySelector("lightning-input");
-    console.log("current value: ", inputBox.value);
+    console.log("current value: ", inputBox.value.length);
 
-    this.todos.push(inputBox.value);
-    console.log(this.todos);
+    if (typeof inputBox.value === "string" && inputBox.value.length > 0) {
+      const todo = {
+        todoId: this.todos.length,
+        todoName: inputBox.value,
+        done: false,
+        todoDate: new Date()
+      };
+
+      this.todos.push(todo);
+      console.log(this.todos);
+    }
 
     inputBox.value = "";
+  }
+
+  get upcomingTasks() {
+    return this.todos && this.todos.length
+      ? this.todos.filter((todo) => !todo.done)
+      : [];
+  }
+
+  get completedTasks() {
+    return this.todos && this.todos.length
+      ? this.todos.filter((todo) => todo.done)
+      : [];
   }
 
   deleteHandler() {}
