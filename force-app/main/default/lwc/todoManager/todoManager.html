@@ -40,14 +40,18 @@
     <lightning-layout-item size="12">
       <div>UPCOMING</div>
       <template for:each={upcomingTasks} for:item="todo">
-        <c-todo-Item key={todo.todoId}></c-todo-Item>
+        <c-todo-item key={todo.todoId} todo-name={todo.todoName}></c-todo-item>
       </template>
     </lightning-layout-item>
 
     <lightning-layout-item size="12">
       <div>COMPLETED</div>
       <template for:each={completedTasks} for:item="todo">
-        <c-todo-Item key={todo.todoId}></c-todo-Item>
+        <c-todo-item
+          key={todo.todoId}
+          todo-name={todo.todoName}
+          done
+        ></c-todo-item>
       </template>
     </lightning-layout-item>
   </lightning-layout>
