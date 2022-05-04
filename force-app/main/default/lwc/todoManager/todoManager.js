@@ -12,6 +12,7 @@ export default class TodoManager extends LightningElement {
     // setInterval(() => {
     this.getTime();
     this.setGreeting(new Date().getHours());
+    this.populateTodos();
     // }, 1000 * 60);
   }
 
@@ -81,4 +82,23 @@ export default class TodoManager extends LightningElement {
   deleteHandler() {}
 
   updateHandler() {}
+
+  populateTodos() {
+    const todos = [
+      {
+        todoId: 0,
+        todoName: "Sample",
+        done: false,
+        todoDate: new Date()
+      },
+      {
+        todoId: 1,
+        todoName: "Undone Sample",
+        done: true,
+        todoDate: new Date()
+      }
+    ];
+
+    this.todos = todos;
+  }
 }

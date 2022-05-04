@@ -1,0 +1,28 @@
+.todo {
+  border-top: 1px solid lightgray;
+  padding: 0.5rem;
+  width: fit-content;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.5s ease;
+}
+
+.completed {
+  background-color: darkturquoise;
+}
+
+.completed:hover {
+  background-color: rgb(17, 172, 174);
+  transform: scale(1.05);
+}
+
+.upcoming {
+  background-color: lightcoral;
+}
+
+.upcoming:hover {
+  background-color: rgb(192, 94, 94);
+  transform: scale(1.05);
+}
