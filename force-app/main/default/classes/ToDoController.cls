@@ -36,7 +36,7 @@ public class ToDoController {
   }
 
   // Get all TODOs
-  @AuraEnabled(cacheable=true)
+  @AuraEnabled(caheable=true)
   public static List<ToDo> getAllTodos() {
     List<SObject> tsks = Database.query(
       'SELECT Id, Name, Done__c FROM ToDo__c WHERE CreatedDate = LAST_N_DAYS:7 ORDER BY CreatedDate DESC'
@@ -75,8 +75,8 @@ public class ToDoController {
     @AuraEnabled
     public String todoName;
     @AuraEnabled
-    public Date todoDate;
+    public String todoDate;
     @AuraEnabled
-    public Boolean done;
+    public String done;
   }
 }

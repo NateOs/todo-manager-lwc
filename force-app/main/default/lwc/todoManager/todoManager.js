@@ -1,5 +1,5 @@
 import { LightningElement, track } from "lwc";
-
+import addTodo from "@salesforce/apex/ToDoCobtroller.addTodo";
 export default class TodoManager extends LightningElement {
   // track makes the value reactive
   @track time = "8:15 AM";
@@ -50,18 +50,23 @@ export default class TodoManager extends LightningElement {
 
   addTodoHandler() {
     const inputBox = this.template.querySelector("lightning-input");
-    console.log("current value: ", inputBox.value.length);
 
     if (typeof inputBox.value === "string" && inputBox.value.length > 0) {
       const todo = {
-        todoId: this.todos.length,
         todoName: inputBox.value,
-        done: false,
-        todoDate: new Date()
+        done: false
       };
 
-      this.todos.push(todo);
-      console.log(this.todos);
+      addTodo({ payload: JSON.stringify(todo) })
+        .then((response) => {
+          console.log("Item inserted successfully", response);
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+
+      // this.todos.push(todo);
+      // console.log(this.todos);
     }
 
     inputBox.value = "";
