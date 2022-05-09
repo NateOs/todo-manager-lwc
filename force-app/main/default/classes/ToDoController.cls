@@ -36,7 +36,7 @@ public class ToDoController {
   }
 
   // Get all TODOs
-  @AuraEnabled(caheable=true)
+  @AuraEnabled(cacheable=true)
   public static List<ToDo> getAllTodos() {
     List<SObject> tsks = Database.query(
       'SELECT Id, Name, Done__c FROM ToDo__c WHERE CreatedDate = LAST_N_DAYS:7 ORDER BY CreatedDate DESC'
