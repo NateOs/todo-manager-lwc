@@ -79,9 +79,6 @@ export default class TodoManager extends LightningElement {
         .catch((error) => {
           console.log("error", error);
         });
-
-      // this.todos.push(todo);
-      // console.log(this.todos);
     }
 
     inputBox.value = "";
@@ -102,23 +99,4 @@ export default class TodoManager extends LightningElement {
   deleteHandler() {}
 
   updateHandler() {}
-
-  populateTodos() {
-    const todos = [
-      {
-        todoId: 0,
-        todoName: "Sample",
-        done: false,
-        todoDate: new Date()
-      },
-      {
-        todoId: 1,
-        todoName: "Undone Sample",
-        done: true,
-        todoDate: new Date()
-      }
-    ];
-
-    this.todos = todos;
-  }
 }
