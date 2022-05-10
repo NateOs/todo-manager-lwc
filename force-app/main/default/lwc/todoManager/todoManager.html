@@ -44,6 +44,8 @@
           key={todo.todoId}
           todo-name={todo.todoName}
           todo-id={todo.todoId}
+          onupdate={updateHandler}
+          ondelete={deleteHandler}
         ></c-todo-item>
       </template>
     </lightning-layout-item>
@@ -55,6 +57,8 @@
           key={todo.todoId}
           todo-name={todo.todoName}
           todo-id={todo.todoId}
+          onupdate={updateHandler}
+          ondelete={deleteHandler}
           done
         ></c-todo-item>
       </template>

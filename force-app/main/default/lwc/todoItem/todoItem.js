@@ -30,6 +30,9 @@ export default class TodoItem extends LightningElement {
         console.log("error in update", err.body.message[0].pageErrors[0]);
       });
     console.log(this.todoId);
+
+    const updateEvent = new CustomEvent("update");
+    this.dispatchEvent(updateEvent);
   }
 
   deleteHandler() {
@@ -41,5 +44,8 @@ export default class TodoItem extends LightningElement {
         console.error("error in delete", err);
       });
     console.log(this.todoId);
+
+    const deleteEvent = new CustomEvent("update");
+    this.dispatchEvent(deleteEvent);
   }
 }

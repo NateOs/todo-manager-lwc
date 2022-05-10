@@ -96,7 +96,11 @@ export default class TodoManager extends LightningElement {
       : [];
   }
 
-  deleteHandler() {}
+  updateHandler() {
+    this.fetchTodos();
+  }
 
-  updateHandler() {}
+  deleteHandler() {
+    this.fetchTodos();
+  }
 }
